@@ -1,4 +1,45 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import './public-path';
+import { createApp } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
-createApp(App).mount('#app')
+import App from './App.vue';
+import routes from './router';
+
+let router = null;
+let instance = null;
+let history = null;
+
+const APP_SELECTOR = '#app'
+
+function retrieveContainer(props = {}) {
+    const { container } = props;
+    return container ? container.querySelector(APP_SELECTOR) : APP_SELECTOR
+}
+
+function render(props = {}) {
+  history = createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/vue3-app' : '/');
+  router = createRouter({ history, routes });
+
+  instance = createApp(App);
+  instance.use(router);
+  instance.mount(retrieveContainer(props));
+}
+
+if (!window.__POWERED_BY_QIANKUN__) {
+  render();
+}
+
+export async function bootstrap() {}
+
+export async function mount(props) {
+  render(props);
+  instance.config.globalProperties = {...instance.config.globalProperties, ...props};
+}
+
+export async function unmount() {
+  instance.unmount();
+  instance._container.innerHTML = '';
+  instance = null;
+  router = null;
+  history.destroy();
+}
