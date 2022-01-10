@@ -16,8 +16,13 @@ function retrieveContainer(props = {}) {
     return container ? container.querySelector(APP_SELECTOR) : APP_SELECTOR
 }
 
+function retrieveHistoryBase(props = {}) {
+  const qiankunBase = props.activeRule || '/'
+  return window.__POWERED_BY_QIANKUN__ ? qiankunBase : '/'
+}
+
 function render(props = {}) {
-  history = createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/vue3-app' : '/');
+  history = createWebHistory(retrieveHistoryBase(props));
   router = createRouter({ history, routes });
 
   instance = createApp(App);
