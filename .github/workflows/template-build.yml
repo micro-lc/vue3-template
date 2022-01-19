@@ -33,4 +33,4 @@ jobs:
       with:
         context: '.'
         push: false
-        tags: "microlc/micro-lc-vue3-template"
+        tags: "microlc/mia_template_service_name_placeholder"

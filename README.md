@@ -1,4 +1,4 @@
-# micro-lc-vue3-template
+# mia_template_service_name_placeholder
 
 ## Project setup
 ```
