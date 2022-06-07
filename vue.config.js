@@ -29,7 +29,6 @@ module.exports = {
     output: {
       library: `${name}-[name]`,
       libraryTarget: 'umd',
-      jsonpFunction: `webpackJsonp_${name}`,
     },
   },
 };
