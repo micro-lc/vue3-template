@@ -12,10 +12,7 @@ import router from "./router";
 
 const APP_SELECTOR = "#app";
 
-const app = createApp(App);
-
-app.use(createPinia());
-app.use(router);
+let app: any
 
 function retrieveContainer(props: QiankunProps) {
   const { container } = props;
@@ -23,6 +20,10 @@ function retrieveContainer(props: QiankunProps) {
 }
 
 const renderApp = (props: QiankunProps) => {
+  app = createApp(App);
+  app.use(createPinia());
+  app.use(router);
+
   const container = retrieveContainer(props) || APP_SELECTOR;
   app.mount(container);
 };
