@@ -8,7 +8,8 @@ import {
 import type { QiankunProps } from "vite-plugin-qiankun/dist/helper";
 
 import App from "./App.vue";
-import router from "./router";
+
+import {createVueRouter} from "./router";
 
 const APP_SELECTOR = "#app";
 
@@ -22,7 +23,7 @@ function retrieveContainer(props: QiankunProps) {
 const renderApp = (props: QiankunProps) => {
   app = createApp(App);
   app.use(createPinia());
-  app.use(router);
+  app.use(createVueRouter(props.activeRule));
 
   const container = retrieveContainer(props) || APP_SELECTOR;
   app.mount(container);
