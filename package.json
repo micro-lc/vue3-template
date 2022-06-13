@@ -41,7 +41,7 @@
     "vite": "^2.9.10",
     "vite-plugin-qiankun": "^1.0.14",
     "vite-svg-loader": "^3.3.0",
-    "vitest": "^0.14.1",
+    "vitest": "^0.14.2",
     "vue-tsc": "^0.37.5"
   }
 }
