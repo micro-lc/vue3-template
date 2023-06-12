@@ -55,15 +55,11 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  position: relative;
   font-weight: normal;
 }
 
-body#vue-app {
+body {
   min-height: 100vh;
-}
-
-body#vue-app, #app {
   color: var(--color-text);
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
