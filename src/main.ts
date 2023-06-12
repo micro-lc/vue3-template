@@ -1,11 +1,61 @@
-import './assets/main.css'
+import type { MicrolcApi, BaseExtension } from '@micro-lc/orchestrator'
+import { renderWithQiankun } from 'vite-plugin-qiankun/dist/helper'
+import type { QiankunProps } from 'vite-plugin-qiankun/dist/helper'
 
 import { createApp } from 'vue'
+import type {App as VueApp} from 'vue'
 import App from './App.vue'
-import router from './router'
+import createVueRouter from './router'
 
-const app = createApp(App)
+import './assets/main.css'
+import type { Router } from 'vue-router'
+import { getBasePath } from './basePath'
 
-app.use(router)
+export interface MicrolcProps extends QiankunProps {
+  container?: HTMLElement
+  formKind?: string
+  microlcApi?: MicrolcApi<BaseExtension>
+}
 
-app.mount('#app')
+let app: VueApp<Element> | null = null
+let routerCtx:  {cleanup: () => void; router: Router} | null = null
+
+const APP_SELECTOR = '#vue-app'
+
+const retrieveContainer = (props: MicrolcProps) => {
+  const { container = document.body } = props
+  return container.querySelector<HTMLElement>(APP_SELECTOR) ?? document.body
+}
+
+const renderApp = (props: MicrolcProps) => {
+  const pathname = getBasePath()
+
+  if(app === null) {
+    routerCtx = createVueRouter(pathname)
+    
+    app = createApp(App)
+    app.use(routerCtx.router)
+    app.mount(retrieveContainer(props))
+  }
+}
+
+renderWithQiankun({
+  mount(props: QiankunProps) {
+    renderApp(props)
+  },
+  bootstrap() {
+    /* no-op */
+  },
+  unmount() {
+    routerCtx?.cleanup()
+    app?.unmount()
+    app = null
+  },
+  update() {
+    /* no-op */
+  }
+})
+
+if (!window.__POWERED_BY_QIANKUN__) {
+  renderApp({})
+}

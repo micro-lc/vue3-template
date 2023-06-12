@@ -10,5 +10,11 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
+  },
+  rules: {
+    '@typescript-eslint/consistent-type-imports': 'error',
+    quotes: ['error', 'single', { allowTemplateLiterals: true, avoidEscape: true }],
+    semi: ['error', 'never'],
+    '@typescript-eslint/no-unused-vars': 'off'
   }
 }
