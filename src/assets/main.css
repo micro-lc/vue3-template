@@ -41,7 +41,7 @@ a,
 }
 
 @media (min-width: 1024px) {
-  body {
+  #vue-app {
     display: flex;
     place-items: center;
   }

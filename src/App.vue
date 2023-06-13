@@ -4,7 +4,7 @@
   import HelloWorld from './components/HelloWorld.vue'
   import { getBasePath } from './basePath'
 
-  const basePath = ref(getBasePath())
+  const basePath = ref(getBasePath().parcelBase)
 </script>
 
 <template>

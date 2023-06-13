@@ -1,18 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { getBasePath } from '@/basePath'
 
-const createVueRouter = (base: string) => {
-  const history = createWebHistory()
+const createVueRouter = () => {
+  const paths = getBasePath()
+  const history = createWebHistory(paths.documentBase)
+  console.log({paths})
   const router = createRouter({
     history,
     routes: [
       {
-        path: base,
+        path: paths.parcelBase,
         name: 'home',
         component: HomeView
       },
       {
-        path: `${base}about`,
+        path: `${paths.parcelBase}about`,
         name: 'about',
         // route level code-splitting
         // this generates a separate chunk (About.[hash].js) for this route

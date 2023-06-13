@@ -4,12 +4,11 @@ import type { QiankunProps } from 'vite-plugin-qiankun/dist/helper'
 
 import { createApp } from 'vue'
 import type {App as VueApp} from 'vue'
+import type { Router } from 'vue-router'
 import App from './App.vue'
 import createVueRouter from './router'
 
 import './assets/main.css'
-import type { Router } from 'vue-router'
-import { getBasePath } from './basePath'
 
 export interface MicrolcProps extends QiankunProps {
   container?: HTMLElement
@@ -23,15 +22,15 @@ let routerCtx:  {cleanup: () => void; router: Router} | null = null
 const APP_SELECTOR = '#vue-app'
 
 const retrieveContainer = (props: MicrolcProps) => {
-  const { container = document.body } = props
-  return container.querySelector<HTMLElement>(APP_SELECTOR) ?? document.body
+  const {document: {body}} = window
+  const container = props.container ?? body
+  console.log(container, window.document.body)
+  return container.querySelector<HTMLElement>(APP_SELECTOR) ?? body
 }
 
 const renderApp = (props: MicrolcProps) => {
-  const pathname = getBasePath()
-
   if(app === null) {
-    routerCtx = createVueRouter(pathname)
+    routerCtx = createVueRouter()
     
     app = createApp(App)
     app.use(routerCtx.router)

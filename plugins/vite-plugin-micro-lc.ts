@@ -43,7 +43,7 @@ export default function plugin(qiankunName: string): PluginOption {
         }
       })
 
-      $('head').append(`<script defer>${createQiankunHelper(qiankunName)}</script>`)
+      $('body').append(`<script>${createQiankunHelper(qiankunName)}</script>`)
 
       return $.html()
     },
