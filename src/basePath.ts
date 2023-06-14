@@ -4,7 +4,6 @@ const getBasePath = () => {
     window.document.baseURI
   )
   const documentBase = document.querySelector('base')?.getAttribute('href') ?? undefined
-  console.log(parcelBase, documentBase)
 
   return {
     parcelBase: documentBase === undefined ? parcelBase : parcelBase.replace(documentBase, '/'),

@@ -24,7 +24,7 @@ const APP_SELECTOR = '#vue-app'
 const retrieveContainer = (props: MicrolcProps) => {
   const {document: {body}} = window
   const container = props.container ?? body
-  console.log(container, window.document.body)
+
   return container.querySelector<HTMLElement>(APP_SELECTOR) ?? body
 }
 

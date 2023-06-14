@@ -5,7 +5,7 @@ import { getBasePath } from '@/basePath'
 const createVueRouter = () => {
   const paths = getBasePath()
   const history = createWebHistory(paths.documentBase)
-  console.log({paths})
+
   const router = createRouter({
     history,
     routes: [

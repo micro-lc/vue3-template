@@ -8,7 +8,7 @@ import microLc from './plugins/vite-plugin-micro-lc'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/applications/vue3/',
+  base: '/',
   build: {
     minify: false
   },
