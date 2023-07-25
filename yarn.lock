@@ -485,13 +485,13 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@micro-lc/orchestrator@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@micro-lc/orchestrator/-/orchestrator-2.1.0.tgz#72bd443db66e195b1d968e51a30f0f9beefa313b"
-  integrity sha512-n+WZfawWu+Fd56kTkX0flYmQMno80i9tL77RpA8PaKrjgQzz6xe7ucs5DfdcuspEWwulUm3QkACGcmnDmJnXVg==
+"@micro-lc/orchestrator@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@micro-lc/orchestrator/-/orchestrator-2.2.0.tgz#fc88e1126e0ade8e8ed545f1f88514988253c194"
+  integrity sha512-qzu/+COt7c2Xsjrowdnmnq75SSLFiVbx1+KzQX09Md1fHyree25oqBmBTGpnwgNFYCqF9Fr2S/QeVs8XnLrjwg==
   dependencies:
     js-yaml "^4.1.0"
-    qiankun "^2.10.5"
+    qiankun "^2.10.11"
     rxjs "^7.8.1"
 
 "@nodelib/fs.scandir@2.1.5":
@@ -2184,10 +2184,10 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.0.tgz#f67fa67c94da8f4d0cfff981aee4118064199b8f"
   integrity sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==
 
-qiankun@^2.10.5:
-  version "2.10.9"
-  resolved "https://registry.yarnpkg.com/qiankun/-/qiankun-2.10.9.tgz#c5a91fc5a0038436f46cfded0e4f14637e197e70"
-  integrity sha512-+DOdKnmFMoMfIWZaoLaBVoHAPlEWg529ZtIBnoNLUTJq4CreHIhXjnqc0mlxCCg4axZKtcORDPMAk4kPG6IH3A==
+qiankun@^2.10.11:
+  version "2.10.11"
+  resolved "https://registry.yarnpkg.com/qiankun/-/qiankun-2.10.11.tgz#8876e10b8ed49102a40d547d30b0325d7ddd0551"
+  integrity sha512-lKXZ3TFgKpeTC3kQQrZZUm5jb2d+MkHbPGW05rdVel72FwagZVlcXIrCNkn1lY7Ng8cnGJUsqYIX4exKf5PLuA==
   dependencies:
     "@babel/runtime" "^7.10.5"
     import-html-entry "^1.14.5"
