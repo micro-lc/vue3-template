@@ -3,7 +3,7 @@ FROM nginx:1.23.3-alpine as build
 LABEL name="mia_template_service_name_placeholder" \
       description="%CUSTOM_PLUGIN_SERVICE_DESCRIPTION%" \
       eu.mia-platform.url="https://www.mia-platform.eu" \
-      eu.mia-platform.version="0.1.0"
+      eu.mia-platform.version="1.0.0"
 
 COPY nginx /etc/nginx
 
